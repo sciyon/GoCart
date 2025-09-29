@@ -4,6 +4,7 @@ const app = express();
 
 dotenv.config({ path: './config/config.env' });
 
+// Import Routes
 import productRoutes from './routes/products.js';
 
 app.use('/api/v1', productRoutes);
