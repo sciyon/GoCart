@@ -49,3 +49,26 @@ export const getProductDetails = async(req, res) => {
         product
     });    
 }         
+
+/*
+    Update product => /api/v1/admin/product/:id
+*/
+export const updateProduct = async(req, res) => {
+    let product = await Product.findById(req?.params?.id);
+    
+    if(!product){   
+        return res.status(404).json({
+            success: false,
+            message: "Product not found"
+        });
+    }
+
+    product = await Product.findByIdAndUpdate(req?.params?.id, req.body, {
+        new: true,
+    });
+
+    res.status(200).json({
+        success: true,
+        product
+    });
+}
