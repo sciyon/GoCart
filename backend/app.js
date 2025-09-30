@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 import { connectDatabase } from './config/dbConnect.js';
 
 const app = express();
+app.use(express.json());
 
 dotenv.config({ path: './config/config.env' });
-
-// DB Connection
 connectDatabase();
+
 
 // Import Routes
 import productRoutes from './routes/products.js';

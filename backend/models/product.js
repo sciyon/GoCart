@@ -84,12 +84,11 @@ const productSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        required: true,
+        required: false,
     },
 },
 {
     timestamps: true,
 })
 
-const Product = mongoose.model("Product", productSchema);
-export default Product;
+export default mongoose.model("Product", productSchema);
